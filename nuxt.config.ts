@@ -82,6 +82,9 @@ export default defineNuxtConfig({
     db: {
       dialect: "postgresql",
       driver: "postgres-js",
+      // Database migrations run separately after deployment; builds must not require
+      // production database credentials during dependency installation.
+      applyMigrationsDuringBuild: false,
     },
   },
   runtimeConfig: {
